@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { TodoItem } from '../components/TodoItem';
+import { Navbar } from '../components/Navbar';
 
 const STATE = {
 	TODO: 'todo',
@@ -53,6 +54,7 @@ function Kanban() {
 
 	return (
 		<div className="Kanban">
+      <Navbar></Navbar>
 			<form onSubmit={handleSubmit}>
 				<input type="text" name="todo" onChange={handleChange} value={form.todo} />
 				<button type="submit">Ajouter</button>
