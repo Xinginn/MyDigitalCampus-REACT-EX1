@@ -1,0 +1,14 @@
+import { useState } from 'react';
+
+function User() {
+
+	
+
+	return (
+		<div className="User">
+
+			<h2>Users</h2>
+
+		</div>
+	);
+}
