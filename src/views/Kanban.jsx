@@ -16,12 +16,12 @@ function Kanban() {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-
 		setTodos([
 			...todos,
 			{
 				name: form.todo,
 				state: STATE.TODO,
+        id: (todos.length === 0) ? 0 : todos[todos.length-1].id +1
 			},
 		]);
 
@@ -51,6 +51,15 @@ function Kanban() {
 		setTodos(newTodos);
 	}
 
+  function handleDelete(item) {
+		const newTodos = todos.filter((elem) => {
+      console.log(item.id !== elem.id)
+      return (item.id !== elem.id)
+    });
+
+		setTodos(newTodos);
+	}
+
 	return (
 		<div className="Kanban">
 
@@ -65,7 +74,7 @@ function Kanban() {
 						return item.state === STATE.TODO;
 					})
 					.map(function (item) {
-						return <TodoItem key={item.name} item={item} handleClick={handleClick} />;
+						return <TodoItem key={item.name} item={item} handleClick={handleClick} handleDelete={handleDelete} />;
 					})}
 			</ul>
 
@@ -76,7 +85,7 @@ function Kanban() {
 						return item.state === STATE.DONE;
 					})
 					.map(function (item) {
-						return <TodoItem key={item.name} item={item} handleClick={handleClick} />;
+						return <TodoItem key={item.name} item={item} handleClick={handleClick} handleDelete={handleDelete}/>;
 					})}
 			</ul>
 		</div>
