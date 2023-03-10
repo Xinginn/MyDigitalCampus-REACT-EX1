@@ -81,3 +81,5 @@ function Kanban() {
 		</div>
 	);
 }
+
+export default Kanban;
