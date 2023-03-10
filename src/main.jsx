@@ -2,9 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import './index.css'
-
+import AppLayout from './components/AppLayout'
 
 import Kanban from './views/Kanban'
+import App from './App'
 
 const router = createBrowserRouter([
 
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home/>
+        element: <App/>
       },
       {
         path: '/kanban',
